@@ -11,6 +11,6 @@ def start(message):
     but3 = types.KeyboardButton('Пропозиції')
     markup.add(but1,but2,but3)
     bot.send_message(message.from_user.id, f'Вас вітає чат-бот {chr(39)}{chr(39)}Безпечна громада{chr(39)}{chr(39)},'
-                                           f'Тут ви можете написати звернення, скарги тощо')
+                                           f'Тут ви можете написати звернення, скарги тощо', reply_markup=markup)
 
 bot.polling(non_stop=True, interval=0)
