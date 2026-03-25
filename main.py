@@ -4,7 +4,7 @@ from a_key import api
 api = api
 bot = telebot.TeleBot(api)
 
-@bot.message_handler(commands=['/start'])
+@bot.message_handler(commands=['start'])
 def start(message):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
     but1 = types.KeyboardButton('Звернення')
