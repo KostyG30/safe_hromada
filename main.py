@@ -1,4 +1,5 @@
 import telebot
+from gevent.testing.travis import commands
 from telebot import types
 from a_key import api
 api = api
@@ -18,10 +19,14 @@ def text_message(message):
     end_message = ""
     if message.text == 'Звернення':
         markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
-        but4 = types.KeyboardButton('Записати')
-        but5 = types.KeyboardButton('Статус')
-        markup.add(but4,but5)
-        bot.send_message(message.from_user.id, ' ', reply_markup=markup)
+        but4 = types.KeyboardButton('Надіслати звернення')
+        but5 = types.KeyboardButton('Отримувати статус')
+        but6 = types.KeyboardButton('Головне меню')
+        markup.add(but4,but5,but6)
+        bot.send_message(message.from_user.id, 'Виберіть дію', reply_markup=markup)
+    elif text_message == 'Головне меню':
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        bot.send_message(message.from_user.id, '/start', reply_markup=markup)
 
 
 bot.polling(non_stop=True, interval=0)
