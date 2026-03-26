@@ -28,5 +28,4 @@ def text_message(message):
         markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
         bot.send_message(message.from_user.id, '/start', reply_markup=markup)
 
-
 bot.polling(non_stop=True, interval=0)
